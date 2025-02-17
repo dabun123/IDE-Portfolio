@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magazine Layout</title>
+  <link rel="stylesheet" href="pages.css">
+  <style>
+    .magazine-layout {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      height: 80vh;
+      overflow: hidden;
+    }
+
+    .magazine-image {
+      display: none;
+      width: auto;
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .magazine-image.active {
+      display: block;
+    }
+
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .nav-button.prev {
+      left: 10px;
+    }
+
+    .nav-button.next {
+      right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="header-left">
+      <span>John Doe</span><span class="path"> /Portfolio</span>
+    </div>
+    <div class="header-right">
+      <nav>
+        <ul>
+          <li><a href="about.html">ABOUT ME</a></li>
+          <li><a href="prot.html">PORTFOLIO</a></li>
+          <li><a href="contact.html">CONTACT ME</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Spacer Div at the top to create space -->
+  <div class="spacer"></div>
+
+  <!-- Magazine Style Layout -->
+  <div class="image-wrapper">
+    <div class="magazine-layout">
+      <button class="nav-button prev" onclick="prevImage()">&#10094;</button>
+
+      <img src="mag1.png" alt="Magazine Image 1" class="magazine-image active">
+      <img src="mag2.png" alt="Magazine Image 2" class="magazine-image">
+      <img src="mag3.png" alt="Magazine Image 3" class="magazine-image">
+      <img src="mag4.png" alt="Magazine Image 4" class="magazine-image">
+
+      <button class="nav-button next" onclick="nextImage()">&#10095;</button>
+    </div>
+  </div>
+
+  <!-- Spacer Div at the bottom to create space -->
+  <div class="spacer"></div>
+
+  <!-- Bottom Bar Section -->
+  <div class="bottom-bar">
+    <div class="contact-item">
+      <img src="phone-icon.png" class="icon" alt="Phone">
+      <span>+1 234 567 890</span>
+    </div>
+    <div class="contact-item">
+      <img src="email-icon.png" class="icon" alt="Email">
+      <span>johndoe@example.com</span>
+    </div>
+  </div>
+
+  <script>
+    let currentImageIndex = 0;
+    const images = document.querySelectorAll('.magazine-image');
+
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      showImage(currentImageIndex);
+    }
+
+    function prevImage() {
+      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+      showImage(currentImageIndex);
+    }
+  </script>
+</body>
+
+</html>

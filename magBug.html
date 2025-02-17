@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magazine Layout</title>
+  <link rel="stylesheet" href="pages.css">
+  <style>
+  .magazine-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80vh;
+    position: relative;
+  }
+  .magazine-content {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .magazine-content.active {
+    display: flex;
+  }
+
+  .magazine-image {
+    max-width: 90%;
+    max-height: 60vh;
+    object-fit: contain;
+    border-radius: 10px;
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  .image-text {
+    margin: 15px 0;
+    font-size: 18px;
+    color: black;
+    text-align: center;
+    max-width: 80%;
+  }
+
+  .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 5px;
+  }
+
+  .nav-button.prev {
+    left: 5%;
+  }
+
+  .nav-button.next {
+    right: 5%;
+  }
+  p {
+     color: black;
+  }
+</style>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="header-left">
+      <span>Melody Khabbazi</span><span class="path"> /Portfolio</span>
+    </div>
+    <div class="header-right">
+      <nav>
+        <ul>
+          <li><a href="about.html">ABOUT ME</a></li>
+          <li><a href="prot.html">PORTFOLIO</a></li>
+          <li><a href="contact.html">CONTACT ME</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Spacer Div at the top to create space -->
+  <div class="spacer"></div>
+
+  <!-- Magazine Style Layout -->
+
+ <div class="image-wrapper">
+  <div class="magazine-layout">
+    <button class="nav-button prev" onclick="prevImage()">&#10094;</button>
+
+  
+    <div class="magazine-content active">
+      <p class="image-text top">Magazine Major 2 Group Project</p>
+      <img src="bug5.png" alt="Magazine Image 2" class="magazine-image">
+      <p class="image-text bottom">Group project Evolve magazine where we were prompted to involve an analysis on biomimicry in product design and its influences. 
+      There is a focus on textures and insect-inspired themes. This was a collaborative assignment for second year computer applications 
+      where each group member was tasked with creating certain aspects of this brand identity. The butterfly chair was developed by me and 
+      further became the brand-identifying logo for our assignment as it inspired our poster design and further pages inside the Evolve magazine.</p>
+    </div>
+
+    <div class="magazine-content">
+      <p class="image-text top">Analysis and Insight on Magazine</p>
+      <a href="bugMag.html">
+        <img src="butmag1.png" alt="Magazine Image 4" class="magazine-image">
+      </a>
+      <p class="image-text bottom">This is a deeper dive into the Evolve magazine that analyzes and provides further thoughts and personal details on the 
+      creation of Evolve as well as each role that was played in producing the poster and brand product design.</p>
+    </div>
+
+    <button class="nav-button next" onclick="nextImage()">&#10095;</button>
+  </div>
+</div>
+  <!-- Bottom Bar Section -->
+<div class="bottom-bar" style="background: white; padding: 10px 20px; display: flex; justify-content: flex-end; align-items: center;">
+
+  <!-- Right Section (Social Icons) -->
+  <div class="social-icons" style="display: flex; gap: 15px;">
+    <a href=" https://www.instagram.com/melodynamic12/" target="_blank">
+      <img src="insta.png" class="icon" alt="Instagram" style="width: 20px; height: 20px;">
+    </a>
+    <a href="https://www.linkedin.com/in/melody-khabbazi/" target="_blank">
+      <img src="link.png" class="icon" alt="LinkedIn" style="width: 20px; height: 20px;">
+    </a>
+    <a href="melodykhabbazi@gmail.com">
+      <img src="email.png" class="icon" alt="Email" style="width: 20px; height: 20px;">
+    </a>
+  </div>
+</div>
+<script>
+  let currentImageIndex = 0;
+  const contents = document.querySelectorAll('.magazine-content');
+
+  function showImage(index) {
+    contents.forEach((content, i) => {
+      content.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % contents.length;
+    showImage(currentImageIndex);
+  }
+
+  function prevImage() {
+    currentImageIndex = (currentImageIndex - 1 + contents.length) % contents.length;
+    showImage(currentImageIndex);
+  }
+
+  // Ensure the first image is visible at the start
+  document.addEventListener("DOMContentLoaded", function () {
+    showImage(currentImageIndex);
+  });
+</script>
+
+</body>
+
+</html>

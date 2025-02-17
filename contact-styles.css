@@ -1,0 +1,221 @@
+/* Set the background image */
+body {
+  background-image: url('cmbg.png');
+  /* Ensure this is the correct path */
+  background-size: cover;
+  /* Ensures the image covers the entire page */
+  background-position: center;
+  /* Centers the image */
+  background-attachment: fixed;
+  /* Keeps the background fixed when scrolling */
+  height: 100vh;
+  /* Ensures the background image covers the full viewport height */
+  margin: 0;
+  /* Removes any default margin */
+  font-family: Arial, sans-serif;
+}
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow-y: auto;
+  /* Enable scrolling */
+}
+
+/* Header Styling */
+header {
+  display: flex;
+  justify-content: space-between;
+  /* Align items to the left and right */
+  align-items: center;
+  /* Vertically center the header items */
+  padding: 10px 15px;
+  /* Consistent padding for all pages */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  /* Ensure header stays on top of content */
+  backdrop-filter: blur(5px);
+  /* Frosted effect for readability */
+  background: rgba(0, 0, 0, 0.6);
+  /* Semi-transparent dark background */
+}
+
+/* Header Left Section */
+.header-left p {
+  color: white;
+  font-size: 14px;
+  /* Uniform font size for the header text */
+}
+
+/* Header Right Section (Navigation Menu) */
+.header-right nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  /* Consistent spacing between navigation links */
+}
+
+.header-right nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  /* Consistent font size for links */
+  transition: color 0.3s;
+}
+
+.header-right nav ul li a:hover {
+  color: #ff5733;
+  /* Highlight color on hover */
+}
+
+.header-right nav ul li a.current-page {
+  color: #ff5733;
+  /* Active page link highlight */
+}
+
+
+/* Contact Section Styling */
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+  margin-top: 80px;
+  /* Adds top margin to prevent overlap with the fixed header */
+}
+
+/* Heading Styling */
+h1 {
+  color: white;
+  /* White color for the heading */
+  font-weight: bold;
+  /* Makes the text bold */
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+  /* Align form text to the left */
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Path Styling */
+.path {
+  color: gray;
+}
+
+/* Label and Input Styling */
+label {
+  color: white;
+  /* White color for the labels */
+  font-weight: bold;
+  text-align: left;
+  /* Align the labels to the left */
+  margin-right: 10px;
+  /* Adds a small margin to the right of the labels */
+  width: 100%;
+}
+
+/* Input and Textarea Styling */
+input,
+textarea {
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  margin: 5px 0;
+  border: 2px solid #ADD8E6;
+  /* Light teal border */
+  border-radius: 5px;
+  background-color: #ADD8E6;
+  /* Light teal background */
+  color: black;
+  /* Text color inside the input */
+}
+
+input:focus,
+textarea:focus {
+  background-color: #00FFFF;
+  /* Light greenish teal on focus */
+  border-color: #00FFFF;
+  /* Border color change on focus */
+  outline: none;
+  /* Removes the default blue outline */
+}
+
+/* Button Styling */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #ff5733;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #ff3411;
+}
+
+/* Portfolio Styling (Fixed Syntax Issue) */
+.portfolio {
+  color: gray;
+  /* Fixing the syntax error here */
+}
+
+
+/* Bottom Bar Styling */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  /* Semi-transparent dark background */
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  /* Padding for the bar */
+  z-index: 10;
+  /* Ensure it stays above other elements */
+  font-size: 14px;
+  /* Consistent font size */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+  /* Subtle shadow effect */
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* Space between icon and text */
+}
+
+.icon {
+  width: 20px;
+  /* Set the size of the icons */
+  height: 20px;
+}

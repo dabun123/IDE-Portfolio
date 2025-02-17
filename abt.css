@@ -1,0 +1,155 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow-y: auto;
+  /* Enable scrolling */
+  background-image: url('abt.png');
+  /* Add your background image */
+  background-size: cover;
+  /* Ensures the image covers the entire background */
+  background-position: center;
+  /* Center the image */
+  background-repeat: no-repeat;
+  /* Prevent tiling */
+}
+
+/* Header Styling */
+header {
+  display: flex;
+  justify-content: space-between;
+  /* Align items to the left and right */
+  align-items: center;
+  /* Vertically center the header items */
+  padding: 10px 15px;
+  /* Consistent padding for all pages */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  /* Ensure header stays on top of content */
+  backdrop-filter: blur(5px);
+  /* Frosted effect for readability */
+  background: rgba(0, 0, 0, 0.6);
+  /* Semi-transparent dark background */
+}
+
+/* Header Left Section */
+.header-left p {
+  color: white;
+  font-size: 14px;
+  /* Uniform font size for the header text */
+}
+
+/* Header Right Section (Navigation Menu) */
+.header-right nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  /* Consistent spacing between navigation links */
+}
+
+.header-right nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  /* Consistent font size for links */
+  transition: color 0.3s;
+}
+
+.header-right nav ul li a:hover {
+  color: #ff5733;
+  /* Highlight color on hover */
+}
+
+.header-right nav ul li a.current-page {
+  color: #ff5733;
+  /* Active page link highlight */
+  font-weight: bold;
+  /* Optional: Make it bold */
+}
+
+/* Image Container */
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0;
+  position: relative;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.image-blur-top {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 75px;
+  /* Determines the blur height */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  z-index: 2;
+  pointer-events: none;
+}
+
+.path {
+  color: gray;
+}
+
+span {
+  color: white;
+}
+
+/* Bottom Bar Styling */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  /* Semi-transparent dark background */
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  /* Padding for the bar */
+  z-index: 10;
+  /* Ensure it stays above other elements */
+  font-size: 14px;
+  /* Consistent font size */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+  /* Subtle shadow effect */
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* Space between icon and text */
+}
+
+.icon {
+  width: 20px;
+  /* Set the size of the icons */
+  height: 20px;
+}
