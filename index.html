@@ -132,17 +132,17 @@
           </div>
         </div>
       </div>
-
+      
+    <div class="scrolling-gallery"> 
+      <div class="gallery-wrapper" id="gallery">
+        <!-- Images dynamically added via JavaScript -->
+      </div>
+    </div>
     </div>
   </div>
 
 <!-- Scrolling Image Gallery -->
-<hr>
-<div class="scrolling-gallery"> 
-  <div class="gallery-wrapper" id="gallery">
-    <!-- Images dynamically added via JavaScript -->
-  </div>
-</div>
+
 
   <!-- Bottom Bar Section -->
 <div class="bottom-bar" style="background: white; padding: 10px 20px; display: flex; justify-content: flex-end; align-items: center;">
@@ -161,20 +161,11 @@
   </div>
 </div>
 <style>
-    .scrolling-gallery {
-    overflow-x: auto; /* Allow horizontal scrolling */
-    white-space: nowrap;
-    width: 100%;
-    background-color: black;
-    padding: 10px 0;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    margin-top: -500px; /* Adjusted for better visibility */
-    margin-bottom: 200px;
-    scrollbar-width: none; /* Hide scrollbar on Firefox */
-    -ms-overflow-style: none; /* Hide scrollbar on Edge */
-  }
+   .scrolling-gallery {
+    margin-top: -450px; /* Adjust for better spacing */
+    margin-bottom: 50px;
+}
+
 
   .scrolling-gallery::-webkit-scrollbar {
     display: none; /* Hide scrollbar on Chrome & Safari */
