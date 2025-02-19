@@ -5,64 +5,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Contact</title>
-  <link rel="stylesheet" href="contact-styles.css"> <!-- Link to your contact-specific CSS -->
-
+  <link rel="stylesheet" href="contact-styles.css">
   <style>
-    /* Scrolling Gallery Styles */
-    .scrolling-gallery {
-      overflow-x: auto; /* Enable horizontal scrolling */
-      white-space: nowrap;
-      width: 100%;
-      background-color: black;
-      padding: 10px 0;
-      display: flex;
-      justify-content: center;
-      position: relative;
-      scrollbar-width: none; /* Hide scrollbar on Firefox */
-      -ms-overflow-style: none; /* Hide scrollbar on Edge */
-    }
-
-    .scrolling-gallery::-webkit-scrollbar {
-      display: none; /* Hide scrollbar on Chrome & Safari */
-    }
-
-    .gallery-wrapper {
-      display: flex;
-      gap: 20px; /* Maintain spacing */
-      animation: scroll 100s linear infinite;
-    }
-
-    .gallery-wrapper img {
-      width: 200px; /* Adjusted size for mobile */
-      height: auto;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    /* Adjust animation for smaller screens */
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* Responsive adjustments */
-    @media screen and (max-width: 768px) {
-      .scrolling-gallery {
-        margin-top: 20px; /* Adjusted for mobile */
-      }
-
-      .gallery-wrapper {
-        animation: none; /* Disable animation for mobile */
-        overflow-x: scroll;
+    body {
         display: flex;
-        flex-wrap: nowrap;
-      }
-
-      .gallery-wrapper img {
-        width: 150px; /* Scale down images */
-        height: auto;
-      }
+        flex-direction: column;
+        min-height: 100vh; 
+        margin: 0; 
     }
+
+    /* Keep contact section centered and pushed up if needed */
+    .contact-section {
+        flex-grow: 1; /* Pushes bottom-bar to the bottom */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* Ensure the bottom bar stays at the bottom but doesn’t force scrolling */
+    .bottom-bar {
+        width: 100%;
+        background: white;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
   </style>
 </head>
 
@@ -106,13 +77,6 @@
     </form>
   </div>
 
-  <!-- Scrolling Image Gallery -->
-  <hr>
-  <div class="scrolling-gallery"> 
-    <div class="gallery-wrapper" id="gallery">
-      <!-- Images dynamically added via JavaScript -->
-    </div>
-  </div>
 
   <!-- Bottom Bar Section -->
   <div class="bottom-bar" style="background: white; padding: 10px 20px; display: flex; justify-content: flex-end; align-items: center;">
@@ -145,7 +109,7 @@
             let body = encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message);
 
             // Construct mailto link
-            let mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
+            let mailtoLink = `mailto:melodykhabbazi@gmail.com?subject=${subject}&body=${body}`;
 
             // Open default email client
             window.location.href = mailtoLink;
