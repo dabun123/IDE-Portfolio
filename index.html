@@ -161,55 +161,81 @@
   </div>
 </div>
 <style>
-   .scrolling-gallery {
-    margin-top: -450px; /* Adjust for better spacing */
-    margin-bottom: 50px;
+.scrolling-gallery {
+  margin-top: -450px; /* Adjust based on layout */
+  margin-bottom: 50px;
+  overflow-x: hidden; /* Hide manual scrollbars if animating */
+  width: 100%;
 }
 
+.gallery-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  animation: scroll 100s linear infinite;
+}
 
-  .scrolling-gallery::-webkit-scrollbar {
-    display: none; /* Hide scrollbar on Chrome & Safari */
+.gallery-wrapper img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Scroll Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Tablets - Slightly slower scroll */
+@media screen and (max-width: 1024px) {
+  .scrolling-gallery {
+    margin-top: -200px;
   }
 
   .gallery-wrapper {
-    display: flex;
-    gap: 20px; /* Maintain spacing */
-    animation: scroll 100s linear infinite;
+    animation: scroll 80s linear infinite;
   }
 
   .gallery-wrapper img {
-    width: 300px; /* Adjusted size for mobile */
-    height: 200px; 
-    border-radius: 5px;
-    cursor: pointer;
+    width: 250px;
+    height: 170px;
+  }
+}
+
+/* Mobile - Turn OFF auto animation, allow manual scroll */
+@media screen and (max-width: 768px) {
+  .scrolling-gallery {
+    margin-top: -100px;
+    overflow-x: auto; /* Allow manual scroll on mobile */
   }
 
-  /* Adjust animation for smaller screens */
-  @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+  .gallery-wrapper {
+    animation: none; /* Disable auto scroll on mobile */
+    flex-wrap: nowrap;
+    width: max-content; /* Ensure full width for scrolling */
   }
 
-  /* Responsive adjustments */
-  @media screen and (max-width: 768px) {
-    .scrolling-gallery {
-      margin-top: -100px; /* Less negative margin */
-    }
-
-    .gallery-wrapper {
-      animation: none; /* Disable animation for mobile */
-      overflow-x: scroll;
-      display: flex;
-      flex-wrap: nowrap;
-    }
-
-    .gallery-wrapper img {
-      width: 300px; /* Scale down images */
-      height: 300px;
-    }
-   
+  .gallery-wrapper img {
+    width: 250px;
+    height: 170px;
   }
+}
 
+/* Very small screens */
+@media screen and (max-width: 480px) {
+  .gallery-wrapper img {
+    width: 220px;
+    height: 150px;
+  }
+}
 </style>
 
 <script>
